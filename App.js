@@ -5,23 +5,17 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 function FirstScreen() {
-  const [direction, setDirection] = useState("ltr");
+  const [direction, setDirection] = useState('flex-start');
 
   return (
     <PreviewLayout
       label="direction"
       selectedValue={direction}
-      values={["ltr", "rtl"]}
+      values={['flex-start', 'flex-end']}
       setSelectedValue={setDirection}>
-      <View
-        style={[styles.box, { backgroundColor: "powderblue" }]}
-      />
-      <View
-        style={[styles.box, { backgroundColor: "skyblue" }]}
-      />
-      <View
-        style={[styles.box, { backgroundColor: "steelblue" }]}
-      />
+      <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
+      <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
+      <View style={[styles.box, {backgroundColor: 'steelblue'}]} />
     </PreviewLayout>
   );
 };
@@ -33,30 +27,29 @@ const PreviewLayout = ({
   selectedValue,
   setSelectedValue,
 }) => (
-  <View style={{ padding: 10, flex: 1 }}>
+  <View style={{padding: 10, flex: 1}}>
     <Text style={styles.label}>{label}</Text>
     <View style={styles.row}>
-      {values.map((value) => (
+      {values.map(value => (
         <TouchableOpacity
           key={value}
           onPress={() => setSelectedValue(value)}
-          style={[
-            styles.button,
-            selectedValue === value && styles.selected,
-          ]}
-        >
+          style={[styles.button, selectedValue === value && styles.selected]}>
           <Text
             style={[
               styles.buttonLabel,
               selectedValue === value && styles.selectedLabel,
-            ]}
-          >
+            ]}>
             {value}
           </Text>
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, { [label]: selectedValue }]}>
+    <View
+      style={[
+        styles.container,
+        {alignItems: selectedValue},
+      ]}>
       {children}
     </View>
   </View>
