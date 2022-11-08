@@ -5,7 +5,7 @@ import HomeTab from '../Screen/HomeTab';
 import Notifications from '../Screen/Notifications';
 import Createnew from '../Screen/Createnew';
 import Profile from '../Screen/Profile';
-
+import MyMapView from '../Screen/MyMapView';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -19,13 +19,13 @@ const BottomTabs = () => {
           return {
             tabBarLabel: ({focused}) => {
               return (
-                <Text style={{color: focused ? 'red' : 'black'}}>{'HomeTab'}</Text>
+                <Text style={{color: focused ? 'red' : 'black'}}>{'Home'}</Text>
               );
             },
             tabBarIcon: ({color, size}) => (
                 <Image
                   source={require('../assets/images/home.jpg')}
-                  style={{width: 26, height: 26}}
+                  style={{width: 20, height: 20}}
                 />
               ),
             headerShown: false,
@@ -34,21 +34,21 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="NotificationsTab"
+        name="Notifications"
         component={Notifications}
         options={() => {
           return {
             tabBarLabel: ({focused}) => {
               return (
                 <Text style={{color: focused ? 'red' : 'black'}}>
-                  {'Notifications'}
+                  {'Notification'}
                 </Text>
               );
             },
             tabBarIcon: ({color, size}) => (
                 <Image
-                  source={require('../assets/images/home.png')}
-                  style={{width: 26, height: 26, }}
+                source={require('../assets/images/home.png')}
+                style={{width: 24, height: 24, }}
                 />
               ),
             headerShown: false,
@@ -57,19 +57,19 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="CreatenewTab"
+        name="Createnew"
         component={Createnew}
         options={() => {
           return {
             tabBarLabel: ({focused}) => {
               return (
-                <Text style={{color: focused ? 'red' : 'black'}}>{'Createnew'}</Text>
+                <Text style={{color: focused ? 'red' : 'black'}}>{'Create'}</Text>
               );
             },
             tabBarIcon: ({color, size}) => (
                 <Image
                   source={require('../assets/images/plus.png')}
-                  style={{width: 26, height: 26, tintColor: color}}
+                  style={{width: 20, height: 20, tintColor: color}}
                 />
               ),
             headerShown: false,
@@ -92,7 +92,29 @@ const BottomTabs = () => {
             tabBarIcon: ({color, size}) => (
                 <Image
                   source={require('../assets/images/home.png')}
-                  style={{width: 26, height: 30, }}
+                  style={{width: 24, height: 24, }}
+                />
+              ),
+            headerShown: false,
+          };
+        }}
+      />
+      <BottomTab.Screen
+        name="MyMapView"
+        component={MyMapView}
+        options={() => {
+          return {
+            tabBarLabel: ({focused}) => {
+              return (
+                <Text style={{color: focused ? 'red' : 'black'}}>
+                  {'Map'}
+                </Text>
+              );
+            },
+            tabBarIcon: ({color, size}) => (
+                <Image
+                  source={require('../assets/images/map.png')}
+                  style={{width: 23, height: 25, }}
                 />
               ),
             headerShown: false,
@@ -100,6 +122,7 @@ const BottomTabs = () => {
         }}
       />
     </BottomTab.Navigator>
+    
   );
 };
 

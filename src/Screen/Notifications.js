@@ -12,3 +12,4 @@ const Notifications = () => {
 export default Notifications;
 
 const styles = StyleSheet.create({});
+
